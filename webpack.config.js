@@ -9,6 +9,24 @@ var config = {
   output: {
     path:  BUILD_DIR,
     filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        include: APP_DIR,
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      }
+    ]
+  },
+  devtool: 'source-map',
+  // Redundent configuration: but you'd configure the dev server here.
+  devServer: {
+    contentBase: __dirname,
+    hot: true
   }
 };
 
