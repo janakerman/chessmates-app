@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -d",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack-dev-server --config webpack.config.js"
+    "start": "webpack-dev-server --progress --colors --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",

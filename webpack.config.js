@@ -25,8 +25,7 @@ var config = {
   devtool: 'source-map',
   // Redundent configuration: but you'd configure the dev server here.
   devServer: {
-    contentBase: __dirname,
-    hot: true
+    contentBase: __dirname
   }
 };
 
