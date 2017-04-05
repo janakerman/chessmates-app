@@ -1,0 +1,15 @@
+{
+  "name": "chessmates-app",
+  "version": "0.0.1",
+  "description": "Web application for viewing statistics about your Lichess team.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -d",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^2.3.3"
+  }
+}
