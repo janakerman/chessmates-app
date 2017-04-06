@@ -1,9 +1,9 @@
 import React from 'react';
-import HelloTitle from '../../components/HelloTitle';
+import TeamMembers from '../../components/TeamMembers';
 
 class App extends React.Component {
   render() {
-    return <HelloTitle />;
+    return <TeamMembers />;
   }
 }
 
