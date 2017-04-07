@@ -1,72 +1,52 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { fetchPlayers } from '../../reducers';
 
 class TeamMembers extends React.Component {
-
-    constructor() {
-        super();
-        this.state = {
-            paginator: {
-                currentPageResults: [],
-            },
-            hasErrored: false,
-            isLoading: false
-        };
-
-        this.sortPlayers = this.sortPlayers.bind(this)
-    }
-
     componentDidMount() {
-        this.fetchData();
+        this.props.fetchPlayers();
     }
-
-    fetchData() {
-        this.setState({isLoading: true});
-        fetch('https://en.lichess.org/api/user?team=scott-logic')
-            .then((response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-                this.setState({isLoading: false});
-                return response;
-            })
-            .then((response) => response.json())
-            .then((response) => response.paginator)
-            .then((paginator) => this.setState({ paginator }))
-            .catch(() => this.setState({hasErrored: true}));
-    }
-
-    sortPlayers() {
-        this.setState({
-            paginator: {
-                currentPageResults: this.state.paginator.currentPageResults.sort((a, b) => a.id < b.id ? -1 : 1)
-            }
-        })
-    }
-
 
     render() {
-        if (this.state.hasErrored) {
+        if (this.props.hasErrored) {
             return <p>Sorry! There was an error loading the players</p>;
         }
-        if (this.state.isLoading) {
+        if (this.props.isLoading) {
             return <p>Loading…</p>;
         }
         return (
             <div>
                 <h1>Scott Logic Team</h1>
                 <ul>
-                    {this.state.paginator.currentPageResults.map((player) => (
+                    {this.props.players.map((player) => (
                         <li key={player.id}>
                             {player.id}
                         </li>
                     ))}
                 </ul>
-                <button onClick={this.sortPlayers}>Sort!</button>
+                <button onClick={this.props.sortPlayers}>Sort!</button>
             </div>
         )
     }
 
 }
 
+const mapStateToProps = state => {
+    return {
+        players: state.players,
+        isLoading: state.isLoading,
+        hasErrored: state.hasErrored
+    };
+};
 
-export default TeamMembers;
+const mapDispatchToProps = dispatch => {
+    return {
+        sortPlayers: () => dispatch({
+            type: 'SORT_PLAYERS'
+        }),
+        fetchPlayers: () => dispatch(fetchPlayers())
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamMembers);
