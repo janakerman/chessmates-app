@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPlayers } from '../../reducers';
+import { fetchPlayers, sortPlayers } from '../../reducers';
 
 class TeamMembers extends React.Component {
     componentDidMount() {
@@ -42,9 +42,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        sortPlayers: () => dispatch({
-            type: 'SORT_PLAYERS'
-        }),
+        sortPlayers: () => dispatch(sortPlayers()),
         fetchPlayers: () => dispatch(fetchPlayers())
     }
 };

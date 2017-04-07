@@ -49,3 +49,7 @@ export const fetchPlayers = () =>  dispatch => {
            })
         })
 };
+
+export const sortPlayers = () => ({
+    type: 'SORT_PLAYERS'
+});
