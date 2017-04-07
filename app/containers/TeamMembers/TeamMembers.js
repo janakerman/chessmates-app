@@ -7,11 +7,12 @@ class TeamMembers extends React.Component {
         this.state = {
             paginator: {
                 currentPageResults: [],
-                nbResults: 2
             },
             hasErrored: false,
             isLoading: false
         };
+
+        this.sortPlayers = this.sortPlayers.bind(this)
     }
 
     componentDidMount() {
@@ -34,6 +35,15 @@ class TeamMembers extends React.Component {
             .catch(() => this.setState({hasErrored: true}));
     }
 
+    sortPlayers() {
+        this.setState({
+            paginator: {
+                currentPageResults: this.state.paginator.currentPageResults.sort((a, b) => a.id < b.id ? -1 : 1)
+            }
+        })
+    }
+
+
     render() {
         if (this.state.hasErrored) {
             return <p>Sorry! There was an error loading the players</p>;
@@ -51,6 +61,7 @@ class TeamMembers extends React.Component {
                         </li>
                     ))}
                 </ul>
+                <button onClick={this.sortPlayers}>Sort!</button>
             </div>
         )
     }

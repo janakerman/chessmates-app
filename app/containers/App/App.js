@@ -1,5 +1,6 @@
 import React from 'react';
-import TeamMembers from '../../components/TeamMembers';
+// TODO: look at absolute imports
+import TeamMembers from '../../containers/TeamMembers';
 
 class App extends React.Component {
   render() {
