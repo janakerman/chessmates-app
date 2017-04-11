@@ -1,6 +1,6 @@
 class ApiService {
     fetchPlayers() {
-        return fetch('http://34.253.162.101:8080/players')
+        return fetch('https://34.253.162.101:8443/players')
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText);
@@ -13,7 +13,7 @@ class ApiService {
     }
 
   fetchGames() {
-    return fetch('http://34.253.162.101:8080/games')
+    return fetch('https://34.253.162.101:8443/games')
       .then(response => {
         if (!response.ok) {
           throw Error(response.statusText);
