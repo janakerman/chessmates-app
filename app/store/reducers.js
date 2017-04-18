@@ -4,6 +4,6 @@ import fetchPlayersReducer from './fetchPlayersReducer'
 import fetchGamesReducer from './fetchGamesReducer'
 
 export default combineReducers({
-    fetchGamesReducer: fetchGamesReducer,
-    fetchPlayersReducer: fetchPlayersReducer
-  });
+  games: fetchGamesReducer,
+  players: fetchPlayersReducer
+});

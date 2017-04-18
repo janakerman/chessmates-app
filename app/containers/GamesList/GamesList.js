@@ -42,9 +42,9 @@ class GamesList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    games: state.games,
-    isLoading: state.isLoading,
-    hasErrored: state.hasErrored
+    games: state.games.games,
+    isLoading: state.games.isLoading,
+    hasErrored: state.games.hasErrored
   };
 };
 

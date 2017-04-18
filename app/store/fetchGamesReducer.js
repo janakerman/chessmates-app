@@ -41,5 +41,5 @@ export const fetchGames = () => dispatch => {
         type: 'FETCH_GAMES_COMPLETE',
         payload: games
       })
-    })
+    });
 };
