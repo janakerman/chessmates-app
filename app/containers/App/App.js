@@ -3,19 +3,16 @@ import React from 'react';
 import TeamMembers from '../../containers/TeamMembers';
 import GamesList from '../../containers/GamesList';
 
-class App extends React.Component {
-
-  render() {
-    return (
-      <div>
-        <div style={leftColumnStyle}>
-          <GamesList />
-        </div>
-        <div style={rightColumnStyle}>
-          <TeamMembers />
-        </div>
-      </div>);
-  }
+function App() {
+  return (
+    <div>
+      <div style={leftColumnStyle}>
+        <GamesList />
+      </div>
+      <div style={rightColumnStyle}>
+        <TeamMembers />
+      </div>
+    </div>);
 }
 
 const leftColumnStyle = {
