@@ -1,14 +1,12 @@
-import apiService from './services/ApiService'
+import apiService from '../services/ApiService'
 
 const initialState = {
   players: [],
-  games: [],
   hasErrored: false,
   isLoading: false
 };
 
-// Top level reducer
-export default (state = initialState, action) => {
+export default function fetchPlayersReducer(state = initialState, action) {
   switch (action.type) {
     case 'FETCH_PLAYERS':
       return {
@@ -22,23 +20,6 @@ export default (state = initialState, action) => {
         players: action.payload
       };
     case 'FETCH_PLAYERS_ERROR':
-      return {
-        ...state,
-        isLoading: false,
-        hasErrored: true
-      };
-    case 'FETCH_GAMES':
-      return {
-        ...state,
-        isLoading: true
-      };
-    case 'FETCH_GAMES_COMPLETE':
-      return {
-        ...state,
-        isLoading: false,
-        games: action.payload
-      };
-    case 'FETCH_GAMES_ERROR':
       return {
         ...state,
         isLoading: false,
@@ -64,20 +45,6 @@ export const fetchPlayers = () => dispatch => {
       dispatch({
         type: 'FETCH_PLAYERS_COMPLETE',
         payload: players
-      })
-    })
-};
-
-export const fetchGames = () => dispatch => {
-  dispatch({
-    type: 'FETCH_GAMES'
-  });
-
-  return apiService.fetchGames()
-    .then(games => {
-      dispatch({
-        type: 'FETCH_GAMES_COMPLETE',
-        payload: games
       })
     })
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchPlayers, sortPlayers} from '../../reducers';
+import {fetchPlayers, sortPlayers} from '../../store/fetchPlayersReducer';
 
 class TeamMembers extends React.Component {
   componentDidMount() {

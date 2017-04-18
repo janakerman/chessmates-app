@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchGames} from '../../reducers';
+import {fetchGames} from '../../store/fetchGamesReducer';
 
 class GamesList extends React.Component {
   componentDidMount() {
