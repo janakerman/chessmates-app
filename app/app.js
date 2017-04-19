@@ -5,13 +5,13 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
-import combineReducers from './store/reducers';
+import rootReducer from './store/reducers';
 import App from './containers/App';
 
 const middlewares = [thunk];
 
 const store = createStore(
-  combineReducers,
+  rootReducer,
   applyMiddleware(...middlewares)
 );
 
