@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchGames} from '../../reducers';
+import {fetchGames} from '../../store/fetchGamesReducer';
 
 class GamesList extends React.Component {
   componentDidMount() {
@@ -42,9 +42,9 @@ class GamesList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    games: state.games,
-    isLoading: state.isLoading,
-    hasErrored: state.hasErrored
+    games: state.games.games,
+    isLoading: state.games.isLoading,
+    hasErrored: state.games.hasErrored
   };
 };
 

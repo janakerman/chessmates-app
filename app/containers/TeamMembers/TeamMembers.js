@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {fetchPlayers, sortPlayers} from '../../reducers';
+import {fetchPlayers, sortPlayers} from '../../store/fetchPlayersReducer';
 
 class TeamMembers extends React.Component {
   componentDidMount() {
@@ -42,9 +42,9 @@ class TeamMembers extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    players: state.players,
-    isLoading: state.isLoading,
-    hasErrored: state.hasErrored
+    players: state.players.players,
+    isLoading: state.players.isLoading,
+    hasErrored: state.players.hasErrored
   };
 };
 
